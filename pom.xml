@@ -14,7 +14,7 @@
     <jdk.version>1.8</jdk.version>
   </properties>
 
-  <scm>
+  <!-- <scm>
       <url>https://github.com/Lukaszpg/jPUBG</url>
       <connection>scm:git:ssh://github.com/Lukaszpg/jPUBG.git</connection>
       <developerConnection>scm:git:ssh://github.com/Lukaszpg/jPUBG.git</developerConnection>
@@ -30,7 +30,7 @@
           <id>snapshots</id>
           <url>http://maven.ndpar.com:9191/nexus/content/repositories/snapshots</url>
       </snapshotRepository>
-  </distributionManagement>
+  </distributionManagement> -->
 
   <developers>
       <developer>
@@ -84,17 +84,6 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>jar</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
             <executions>
                 <execution>
                     <goals>
