@@ -16,8 +16,8 @@
 
   <scm>
     <url>https://github.com/Lukaszpg/jPUBG</url>
-    <connection>scm:git:lukaszpg://github.com/Lukaszpg/jPUBG.git</connection>
-    <developerConnection>scm:git:lukaszpg@github.com/jPUBG.git</developerConnection>
+    <connection>scm:git:ssh://git@github.com/Lukaszpg/jPUBG.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/Lukaszpg/jPUBG.git</developerConnection>
     <tag>jpubg-1.0.1.0-SNAPSHOT</tag>
   </scm>
 
