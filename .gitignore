@@ -26,3 +26,12 @@ hs_err_pid*
 *.ipr
 
 .idea
+/target/maven-status/
+/target/generated-sources/
+/target/apidocs/
+/target/maven-archiver/
+/target/javadoc-bundle-options/
+/target/classes/
+!/target/jPUBG-1.0.1.4-SNAPSHOT.jar
+!/target/jPUBG-1.0.1.4-SNAPSHOT-javadoc.jar
+!/target/jPUBG-1.0.1.4-SNAPSHOT-sources.jar
