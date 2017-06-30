@@ -11,7 +11,7 @@ of the wrapper and it will filter data by specified mode and region.
 
 ## Usage
 
-Get the library file compiled with Java 1.8.0_131 from the directory ***/target/jPUBG_v1_0_1_0*** (currently **jPUBG_1.0.1.0.jar**) and add it to your project classpath, then get the jPUBG API wrapper object from the factory with your api key and start fetching data! 
+Get the library file compiled with Java 1.8.0_131 from the directory ***/target/*** (currently **jPUBG-1.0.1.4-SNAPSHOT.jar**) and add it to your project classpath, then get the jPUBG API wrapper object from the factory with your api key and start fetching data! 
 
 ```java
     JPubg jPubg = JPubgFactory.getWrapper(YOUR_API_KEY);
