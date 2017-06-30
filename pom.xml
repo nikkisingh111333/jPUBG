@@ -3,7 +3,7 @@
 
   <groupId>pro.lukasgorny</groupId>
   <artifactId>jpubg</artifactId>
-  <version>1.0.1.3</version>
+  <version>1.0.1.4-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>jpubg</name>
@@ -18,7 +18,7 @@
       <url>https://github.com/Lukaszpg/jPUBG</url>
       <connection>scm:git:ssh://github.com/Lukaszpg/jPUBG.git</connection>
       <developerConnection>scm:git:ssh://github.com/Lukaszpg/jPUBG.git</developerConnection>
-      <tag>jpubg-1.0.1.3</tag>
+      <tag>jpubg-1.0.1.2-SNAPSHOT</tag>
   </scm>
 
   <distributionManagement>
