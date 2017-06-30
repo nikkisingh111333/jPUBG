@@ -46,6 +46,8 @@
                     <checkModificationExclude>.idea/modules.xml</checkModificationExclude>
                     <checkModificationExclude>.idea/workspace.xml</checkModificationExclude>
                 </checkModificationExcludes>
+                <localCheckout>true</localCheckout>
+                <pushChanges>false</pushChanges>
             </configuration>
         </plugin>
         <plugin>
