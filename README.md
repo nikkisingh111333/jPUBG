@@ -26,6 +26,10 @@ As this is completely Open Source project, you may clone the code from the Githu
 2. Go to the directory where you have cloned the repository.
 3. Perform ***mvn clean package*** command and wait a minute.
 
+## Documentation
+
+Complete documentation is available on https://lukasgorny.pro/jpubg/.
+
 ## TO-DO
 
 - Add JSON parser and return objects instead of String data
