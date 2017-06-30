@@ -27,7 +27,7 @@ public interface JPubg {
      * {@link PUBGMode#duo}
      * {@link PUBGMode#squad}
      * @return JSON String format with player data whose data you want to retrieve
-     * @throws ApiException When something goes fatally wrong and response is NULL
+     * @throws ApiException When something goes fatally wrong and response isNULL
      */
     String getByNickname(String nickname, PUBGMode mode) throws ApiException;
 
