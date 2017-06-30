@@ -3,7 +3,7 @@
 
   <groupId>pro.lukasgorny</groupId>
   <artifactId>jpubg</artifactId>
-  <version>1.0.1.0-SNAPSHOT</version>
+  <version>1.0.1.0</version>
   <packaging>jar</packaging>
 
   <name>jpubg</name>
@@ -18,7 +18,7 @@
       <url>https://github.com/Lukaszpg/jPUBG</url>
       <connection>scm:git:git://github.com/Lukaszpg/jPUBG.git</connection>
       <developerConnection>scm:git:git@github.com:lukaszpg/jPUBG.git</developerConnection>
-      <tag>jpubg-1.0.1.0-SNAPSHOT</tag>
+      <tag>1.0.1.0-SNAPSHOT</tag>
   </scm>
 
   <developers>
@@ -40,6 +40,13 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-release-plugin</artifactId>
             <version>2.5.3</version>
+            <configuration>
+                <checkModificationExcludes>
+                    <checkModificationExclude>pom.xml</checkModificationExclude>
+                    <checkModificationExclude>.idea/modules.xml</checkModificationExclude>
+                    <checkModificationExclude>.idea/workspace.xml</checkModificationExclude>
+                </checkModificationExcludes>
+            </configuration>
         </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
