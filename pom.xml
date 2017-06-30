@@ -15,10 +15,10 @@
   </properties>
 
   <scm>
-    <url>https://github.com/Lukaszpg/jPUBG</url>
-    <connection>scm:git:ssh://git@github.com/Lukaszpg/jPUBG.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/Lukaszpg/jPUBG.git</developerConnection>
-    <tag>jpubg-1.0.1.0-SNAPSHOT</tag>
+      <url>https://github.com/Lukaszpg/jPUBG</url>
+      <connection>scm:git:git://github.com/Lukaszpg/jPUBG.git</connection>
+      <developerConnection>scm:git:git@github.com:lukaszpg/jPUBG.git</developerConnection>
+      <tag>jpubg-1.0.1.0-SNAPSHOT</tag>
   </scm>
 
   <developers>
