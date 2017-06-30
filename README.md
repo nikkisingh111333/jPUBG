@@ -21,12 +21,10 @@ Get the library file compiled with Java 1.8.0_131 from the directory ***/target/
 
 ## Compiling on your own
 
-As this is completely Open Source project, you may clone the code from the Github and compile the library on your own. To do this, proceed with steps: 
-
-
-
-
-
+As this is completely Open Source project, you may clone the code from the Github and compile the library on your own. 
+1. Be sure that you have Maven (at least version 3.3.9) installed.
+2. Go to the directory where you have cloned the repository.
+3. Perform ***mvn clean package*** command and wait a minute.
 
 ## TO-DO
 
