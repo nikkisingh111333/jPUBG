@@ -1,7 +1,7 @@
 package pro.lukasgorny.factory;
 
-import pro.lukasgorny.jpubg.JPubg;
-import pro.lukasgorny.jpubg.JPubgImpl;
+import pro.lukasgorny.core.JPubg;
+import pro.lukasgorny.core.JPubgImpl;
 
 /**
  * Created by Łukasz on 29.06.2017.

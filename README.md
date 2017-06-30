@@ -15,8 +15,8 @@ To get the library file compiled with Java 1.8.0_131 please go to [releases](htt
 
 ```java
     JPubg jPubg = JPubgFactory.getWrapper(YOUR_API_KEY);
-    jPubg.getByNickname("TheHusar"); //Returns "TheHusar" player stats in string JSON format
-    jPubg.getBySteamID("1234567890"); //Returns player with SteamID 1234567890 stats in string JSON format
+    jPubg.getByNickname("TheHusar"); //Returns "TheHusar" player matches in string JSON format
+    jPubg.getBySteamID("1234567890"); //Returns player with SteamID 1234567890 matches in string JSON format
 ```
 
 ## Compiling on your own

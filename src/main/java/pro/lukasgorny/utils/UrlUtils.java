@@ -1,7 +1,5 @@
 package pro.lukasgorny.utils;
 
-import pro.lukasgorny.enums.PUBGMode;
-import pro.lukasgorny.enums.PUBGRegion;
 import pro.lukasgorny.settings.Settings;
 
 /**
@@ -9,7 +7,7 @@ import pro.lukasgorny.settings.Settings;
  */
 public class UrlUtils {
 
-    public static String prepareNicknameRequestURL(String nickname, PUBGMode mode, PUBGRegion region) {
+    public static String prepareNicknameRequestURL(String nickname) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(Settings.URL_REQUEST_BY_NICKNAME);
         stringBuilder.append(nickname);
@@ -17,7 +15,7 @@ public class UrlUtils {
         return stringBuilder.toString();
     }
 
-    public static String prepareSteamIDRequestURL(String steamID, PUBGMode mode, PUBGRegion region) {
+    public static String prepareSteamIDRequestURL(String steamID) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(Settings.URL_REQUEST_BY_STEAMID);
         stringBuilder.append(steamID);

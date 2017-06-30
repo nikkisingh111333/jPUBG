@@ -1,4 +1,4 @@
-package pro.lukasgorny.http;
+package pro.lukasgorny.services;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,8 +8,6 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-import pro.lukasgorny.enums.PUBGMode;
-import pro.lukasgorny.enums.PUBGRegion;
 import pro.lukasgorny.exceptions.ApiException;
 import pro.lukasgorny.exceptions.BadResponseCodeException;
 import pro.lukasgorny.messages.Messages;
@@ -31,12 +29,12 @@ public class HttpService {
         this.apiKey = apiKey;
     }
 
-    public String executeGetByNicknameAction(String nickname, PUBGMode mode, PUBGRegion region) throws ApiException {
+    public String executeGetByNicknameAction(String nickname) throws ApiException {
         if(StringUtils.isNullOrEmpty(nickname)) {
             throw new IllegalArgumentException(Messages.NICKNAME_MUST_NOT_BE_NULL_OR_EMPTY);
         }
 
-        String response = sendGetByNicknameRequest(nickname, mode, region);
+        String response = sendGetByNicknameRequest(nickname);
 
         if(response == null) {
             throw new ApiException(Messages.FATAL_ERROR_NULL_RESPONSE);
@@ -45,12 +43,12 @@ public class HttpService {
         return response;
     }
 
-    public String executeGetBySteamIDAction(String steamID, PUBGMode mode, PUBGRegion region) throws ApiException {
+    public String executeGetBySteamIDAction(String steamID) throws ApiException {
         if(StringUtils.isNullOrEmpty(steamID)) {
             throw new IllegalArgumentException(Messages.STEAMID_MUST_NOT_BE_NULL_OR_EMPTY);
         }
 
-        String response = sendGetBySteamIDRequest(steamID, mode, region);
+        String response = sendGetBySteamIDRequest(steamID);
 
         if(response == null) {
             throw new ApiException(Messages.FATAL_ERROR_NULL_RESPONSE);
@@ -60,9 +58,9 @@ public class HttpService {
     }
 
 
-    private String sendGetByNicknameRequest(String nickname, PUBGMode mode, PUBGRegion region) {
+    private String sendGetByNicknameRequest(String nickname) {
         try {
-            return sendGetRequest(UrlUtils.prepareNicknameRequestURL(nickname, mode, region));
+            return sendGetRequest(UrlUtils.prepareNicknameRequestURL(nickname));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -70,9 +68,9 @@ public class HttpService {
         return null;
     }
 
-    private String sendGetBySteamIDRequest(String steamID, PUBGMode mode, PUBGRegion region) {
+    private String sendGetBySteamIDRequest(String steamID) {
         try {
-            return sendGetRequest(UrlUtils.prepareSteamIDRequestURL(steamID, mode, region));
+            return sendGetRequest(UrlUtils.prepareSteamIDRequestURL(steamID));
         } catch (Exception e) {
             e.printStackTrace();
         }
