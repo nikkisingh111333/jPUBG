@@ -18,7 +18,7 @@ To get the library file compiled with Java 1.8.0_131 please go to [releases](htt
     String data = jPubg.getByNickname("TheHusar"); // Returns player "TheHusar" data in String JSON Format. Use it if you want to parse the data by yourself
     Player player = jPubg.getByNickname("TheHusar", PUBGMode.solo); // Returns player "TheHusar" object with matches filtered to played only in solo game mode
     Player player2 = jPubg.getByNickname("TheHusar", PUBGRegion.eu); // Returns player "TheHusar" object with matches filtered to only played in the EU region
-    Player player3 = jPubg.getByNickname("TheHusar", PUBGMode.duo, PUBGRegion.eu); // Returns player "TheHusar" object with matches filtered to played only in solo game mode and in eu region
+    Player player3 = jPubg.getByNickname("TheHusar", PUBGMode.duo, PUBGRegion.eu); // Returns player "TheHusar" object with matches filtered to played only in duo game mode and in eu region
 ```
 
 ## Compiling on your own
@@ -34,7 +34,7 @@ Complete documentation is available on https://lukasgorny.pro/jpubg/.
 
 ## TO-DO
 
-- Add JSON parser and return objects instead of String data
-- Add Java-docs
-- Clean-up some code mess
+- ~~Add JSON parser and return objects instead of String data~~
+- ~~Add Java-docs~~
+- ~~Clean-up some code mess~~
 - Add library to central Maven repository
