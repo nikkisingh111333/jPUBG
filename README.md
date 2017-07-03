@@ -27,6 +27,7 @@ As this is completely Open Source project, you may clone the code from the Githu
 1. Be sure that you have Maven (at least version 3.3.9) installed.
 2. Go to the directory where you have cloned the repository.
 3. Perform ***mvn clean package*** command and wait a minute.
+4. Compiled .jar file will appear in the ***/target*** folder. The one you should use is named jPUBG-X.X.X-SNAPSHOT-jar-with-dependencies.jar, where X.X.X is of course version of the application.
 
 ## Documentation
 
