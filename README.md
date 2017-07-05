@@ -34,4 +34,4 @@ Complete documentation is available on https://lukasgorny.pro/jpubg/.
 - ~~Add JSON parser and return objects instead of String data~~
 - ~~Add Java-docs~~
 - ~~Clean-up some code mess~~
-- Add library to central Maven repository
+- Add library to central Maven repository (I have permissions now, going to publish library to Maven in a couple of days)
