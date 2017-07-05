@@ -5,10 +5,6 @@
 Simple API wrapper written in Java 8 for retriving statistics from http://pubgtracker.com API. 
 You need valid pubgtracker.com API KEY in order to use my API wrapper. You can get one here: https://pubgtracker.com/site-api.
 
-First version of the wrapper supports fetching data by SteamID or in-game nickname. 
-Because pubgtracker.com currently does not support fetching data by mode or region, I'll add JSON parser in next version
-of the wrapper and it will filter data by specified mode and region.
-
 ## Usage
 
 To get the library file compiled with Java 1.8.0_131 please go to [releases](https://github.com/Lukaszpg/jPUBG/releases) and download latest available version. Add it to your project classpath, then get the jPUBG API wrapper object from the factory with your api key and start fetching data! 
