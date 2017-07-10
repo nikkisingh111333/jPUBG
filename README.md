@@ -34,6 +34,7 @@ To get the library file compiled with Java 1.8.0_131 please go to [releases](htt
     Player player = jPubg.getByNickname("TheHusar", PUBGMode.solo); // Returns player "TheHusar" object with matches filtered to played only in solo game mode
     Player player2 = jPubg.getByNickname("TheHusar", PUBGRegion.eu); // Returns player "TheHusar" object with matches filtered to only played in the EU region
     Player player3 = jPubg.getByNickname("TheHusar", PUBGMode.duo, PUBGRegion.eu); // Returns player "TheHusar" object with matches filtered to played only in duo game mode and in eu region
+    Stat stat = jPubg.getPlayerMatchStatByStatName(player3, PUBGStat.RATING); // Returns "Rating" stat object of player "TheHusar" from latest season from DUO mode and EU region
 ```
 
 ## Compiling on your own
