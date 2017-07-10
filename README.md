@@ -1,5 +1,7 @@
 # jPUBG
 
+[![Build Status](https://travis-ci.org/Lukaszpg/jPUBG.svg?branch=master)](https://travis-ci.org/Lukaszpg/jPUBG)
+
 ## Overview
 
 Simple API wrapper written in Java 8 for retriving statistics from http://pubgtracker.com API. 
