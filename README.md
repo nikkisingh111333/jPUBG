@@ -11,13 +11,13 @@ You need valid pubgtracker.com API KEY in order to use my API wrapper. You can g
 
 ### 1. Using Maven
 
-It's simple - just add few lines below to your pom.xml and you're good to go!
+It's simple - just add few lines below to your pom.xml and you're good to go! X.X.X is of course preferable version of the library.
 
 ```
 <dependency>
       <groupId>pro.lukasgorny</groupId>
       <artifactId>jpubg</artifactId>
-      <version>1.1.0</version>
+      <version>X.X.X</version>
 </dependency>
 ```
 
