@@ -46,7 +46,7 @@ As this is completely Open Source project, you may clone the code from the Githu
 
 ## Documentation
 
-Complete documentation is available on https://lukasgorny.pro/jpubg/.
+Documentation is available on: http://www.javadoc.io/doc/pro.lukasgorny/jpubg
 
 ## TO-DO
 
