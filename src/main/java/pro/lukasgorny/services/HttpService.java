@@ -24,9 +24,15 @@ public class HttpService {
     private URL url;
     private String apiKey;
     private HttpURLConnection connection;
+    private int connectionTimeout = Settings.CONNECTION_TIMEOUT;
 
     public HttpService(String apiKey) {
         this.apiKey = apiKey;
+    }
+
+    public HttpService(String apiKey, int connectionTimeout) {
+        this.apiKey = apiKey;
+        this.connectionTimeout = connectionTimeout;
     }
 
     public String executeGetByNicknameAction(String nickname) throws ApiException {
@@ -95,6 +101,7 @@ public class HttpService {
     }
 
     private void setRequestProperties() throws ProtocolException {
+        connection.setConnectTimeout(connectionTimeout);
         connection.setRequestMethod(Settings.REQUEST_TYPE);
         connection.setRequestProperty(Settings.REQUEST_HEADER_USER_AGENT, Settings.USER_AGENT);
         connection.setRequestProperty(Settings.REQUEST_HEADER_TRN_API_KEY, apiKey);

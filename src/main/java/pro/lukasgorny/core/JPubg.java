@@ -1,8 +1,10 @@
 package pro.lukasgorny.core;
 
 import pro.lukasgorny.dto.Player;
+import pro.lukasgorny.dto.Stat;
 import pro.lukasgorny.enums.PUBGMode;
 import pro.lukasgorny.enums.PUBGRegion;
+import pro.lukasgorny.enums.PUBGStat;
 import pro.lukasgorny.exceptions.ApiException;
 
 /**
@@ -13,6 +15,7 @@ public interface JPubg {
      * Retrieves player specified by nickname data from the PUBGTracker API
      * and returns it in JSON String format. Use this method if you want to parse the
      * data by yourself.
+     *
      * @param nickname nickname of the player
      * @return JSON String format with player data
      * @throws ApiException When something goes fatally wrong and response is NULL
@@ -22,11 +25,12 @@ public interface JPubg {
     /**
      * Retrieves player specified by nickname data from the PUBGTracker API
      * and filters it by specified mode.
+     *
      * @param nickname nickname of the player
-     * @param mode specifies from what game mode you want the data to be retrieved
-     * {@link PUBGMode#solo}
-     * {@link PUBGMode#duo}
-     * {@link PUBGMode#squad}
+     * @param mode     specifies from what game mode you want the data to be retrieved
+     *                 {@link PUBGMode#solo}
+     *                 {@link PUBGMode#duo}
+     *                 {@link PUBGMode#squad}
      * @return Object with player data
      * @throws ApiException When something goes fatally wrong and response is NULL
      */
@@ -35,14 +39,15 @@ public interface JPubg {
     /**
      * Retrieves player specified by nickname data from the PUBGTracker API
      * and filters it by specified region.
+     *
      * @param nickname nickname of the player
-     * @param region specifies from what region you want the data to be retrieved
-     * {@link PUBGRegion#agg}
-     * {@link PUBGRegion#as}
-     * {@link PUBGRegion#na}
-     * {@link PUBGRegion#eu}
-     * {@link PUBGRegion#oc}
-     * {@link PUBGRegion#sa}
+     * @param region   specifies from what region you want the data to be retrieved
+     *                 {@link PUBGRegion#agg}
+     *                 {@link PUBGRegion#as}
+     *                 {@link PUBGRegion#na}
+     *                 {@link PUBGRegion#eu}
+     *                 {@link PUBGRegion#oc}
+     *                 {@link PUBGRegion#sa}
      * @return Object with player data
      * @throws ApiException When something goes fatally wrong and response is NULL
      */
@@ -51,15 +56,16 @@ public interface JPubg {
     /**
      * Retrieves player specified by nickname data from the PUBGTracker API
      * and filters it by specified region and mode.
+     *
      * @param nickname nickname of the player
-     * @param mode specifies from what game mode you want the data to be retrieved {@link PUBGMode#solo} {@link PUBGMode#duo} {@link PUBGMode#squad}
-     * @param region specifies from what region you want the data to be retrieved
-     * {@link PUBGRegion#agg}
-     * {@link PUBGRegion#as}
-     * {@link PUBGRegion#na}
-     * {@link PUBGRegion#eu}
-     * {@link PUBGRegion#oc}
-     * {@link PUBGRegion#sa}
+     * @param mode     specifies from what game mode you want the data to be retrieved {@link PUBGMode#solo} {@link PUBGMode#duo} {@link PUBGMode#squad}
+     * @param region   specifies from what region you want the data to be retrieved
+     *                 {@link PUBGRegion#agg}
+     *                 {@link PUBGRegion#as}
+     *                 {@link PUBGRegion#na}
+     *                 {@link PUBGRegion#eu}
+     *                 {@link PUBGRegion#oc}
+     *                 {@link PUBGRegion#sa}
      * @return Object with player data
      * @throws ApiException When something goes fatally wrong and response is NULL
      */
@@ -69,6 +75,7 @@ public interface JPubg {
      * Retrieves player specified by steamID data from the PUBGTracker API
      * and returns it in JSON String format. Use this method if you want to parse the
      * data by yourself.
+     *
      * @param steamID steamID of the player
      * @return JSON String format with player data
      * @throws ApiException When something goes fatally wrong and response is NULL
@@ -78,11 +85,12 @@ public interface JPubg {
     /**
      * Retrieves player specified by steamID data from the PUBGTracker API
      * and filters it by specified mode.
+     *
      * @param steamID steamID of the player
-     * @param mode specifies from what game mode you want the data to be retrieved
-     * {@link PUBGMode#solo}
-     * {@link PUBGMode#duo}
-     * {@link PUBGMode#squad}
+     * @param mode    specifies from what game mode you want the data to be retrieved
+     *                {@link PUBGMode#solo}
+     *                {@link PUBGMode#duo}
+     *                {@link PUBGMode#squad}
      * @return Object with player data
      * @throws ApiException When something goes fatally wrong and response is NULL
      */
@@ -91,14 +99,15 @@ public interface JPubg {
     /**
      * Retrieves player specified by steamID data from the PUBGTracker API
      * and filters it by specified region.
+     *
      * @param steamID steamID of the player
-     * @param region specifies from what region you want the data to be retrieved
-     * {@link PUBGRegion#agg}
-     * {@link PUBGRegion#as}
-     * {@link PUBGRegion#na}
-     * {@link PUBGRegion#eu}
-     * {@link PUBGRegion#oc}
-     * {@link PUBGRegion#sa}
+     * @param region  specifies from what region you want the data to be retrieved
+     *                {@link PUBGRegion#agg}
+     *                {@link PUBGRegion#as}
+     *                {@link PUBGRegion#na}
+     *                {@link PUBGRegion#eu}
+     *                {@link PUBGRegion#oc}
+     *                {@link PUBGRegion#sa}
      * @return Object with player data
      * @throws ApiException When something goes fatally wrong and response is NULL
      */
@@ -107,20 +116,31 @@ public interface JPubg {
     /**
      * Retrieves player specified by steamID data from the PUBGTracker API
      * and filters it by specified mode and region.
+     *
      * @param steamID steamID of the player
-     * @param mode specifies from what game mode you want the data to be retrieved
-     * {@link PUBGMode#solo}
-     * {@link PUBGMode#duo}
-     * {@link PUBGMode#squad}
-     * @param region specifies from what region you want the data to be retrieved
-     * {@link PUBGRegion#agg}
-     * {@link PUBGRegion#as}
-     * {@link PUBGRegion#na}
-     * {@link PUBGRegion#eu}
-     * {@link PUBGRegion#oc}
-     * {@link PUBGRegion#sa}
+     * @param mode    specifies from what game mode you want the data to be retrieved
+     *                {@link PUBGMode#solo}
+     *                {@link PUBGMode#duo}
+     *                {@link PUBGMode#squad}
+     * @param region  specifies from what region you want the data to be retrieved
+     *                {@link PUBGRegion#agg}
+     *                {@link PUBGRegion#as}
+     *                {@link PUBGRegion#na}
+     *                {@link PUBGRegion#eu}
+     *                {@link PUBGRegion#oc}
+     *                {@link PUBGRegion#sa}
      * @return Object with player data
      * @throws ApiException When something goes fatally wrong and response is NULL
      */
     Player getBySteamID(String steamID, PUBGMode mode, PUBGRegion region) throws ApiException;
+
+    /**
+     * Filters stat by name from specified players matches from the latest season.
+     *
+     * @param player steamID of the player
+     * @param stat   specifies what stat you want to be filtered
+     * @return Object with stat data
+     * @throws ApiException When player object is null or player has no matches played in the given season
+     */
+    Stat getPlayerMatchStatByStatName(Player player, PUBGStat stat) throws ApiException;
 }

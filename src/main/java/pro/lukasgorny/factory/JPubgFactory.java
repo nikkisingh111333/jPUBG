@@ -8,7 +8,25 @@ import pro.lukasgorny.core.JPubgImpl;
  */
 public class JPubgFactory {
 
+    /**
+     * Returns fully initialized, ready to use API object with
+     * default connection timeout (5000 miliseconds - 5 seconds).
+     *
+     * @param apiKey your http://pubgtracker.com API-KEY
+     * @return Fully initialized API object
+     */
     public static JPubg getWrapper(String apiKey) {
         return new JPubgImpl(apiKey);
+    }
+
+    /**
+     * Returns fully initialized, ready to use API object with specified connection timeout.
+     *
+     * @param apiKey your http://pubgtracker.com API-KEY
+     * @param connectionTimeout connection timeout in miliseconds (default 5000 miliseconds - 5 seconds)
+     * @return Fully initialized API object
+     */
+    public static JPubg getWrapper(String apiKey, int connectionTimeout) {
+        return new JPubgImpl(apiKey, connectionTimeout);
     }
 }
