@@ -6,4 +6,4 @@ branches:
   - master
 notifications:
     email: false
-install: mvn install -Dgpg.skip
+install: mvn clean deploy --settings travis-settings.xml -B
