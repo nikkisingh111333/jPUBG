@@ -17,7 +17,7 @@ It's simple - just add few lines below to your pom.xml and you're good to go!
 <dependency>
       <groupId>pro.lukasgorny</groupId>
       <artifactId>jpubg</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
+      <version>1.1.0</version>
 </dependency>
 ```
 
