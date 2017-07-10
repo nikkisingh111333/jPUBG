@@ -5,6 +5,4 @@ branches:
   - master
 notifications:
     email: false
-install: mvn clean deploy --settings travis-settings.xml -B
-before_install:
-  - echo $GPG_PRIVATEKEY | $GPG_EXECUTABLE --import;
+install: mvn clean deploy -Dgpg.skip
