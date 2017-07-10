@@ -7,3 +7,5 @@ branches:
 notifications:
     email: false
 install: mvn clean deploy --settings travis-settings.xml -B
+before_install:
+  - if [ ! -z "$GPG_PRIVATEKEY" ]; then echo $GPG_PRIVATEKEY | base64 --decode | $GPG_EXECUTABLE --import; fi
