@@ -5,9 +5,26 @@
 Simple API wrapper written in Java 8 for retriving statistics from http://pubgtracker.com API. 
 You need valid pubgtracker.com API KEY in order to use my API wrapper. You can get one here: https://pubgtracker.com/site-api.
 
-## Usage
+## How to get
+
+### 1. Using Maven
+
+It's simple - just add few lines below to your pom.xml and you're good to go!
+
+```
+<dependency>
+      <groupId>pro.lukasgorny</groupId>
+      <artifactId>jpubg</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+</dependency>
+```
+
+### 2. As standalone library
 
 To get the library file compiled with Java 1.8.0_131 please go to [releases](https://github.com/Lukaszpg/jPUBG/releases) and download latest available version. Add it to your project classpath, then get the jPUBG API wrapper object from the factory with your api key and start fetching data! 
+
+
+## Example usage
 
 ```java
     JPubg jPubg = JPubgFactory.getWrapper(YOUR_API_KEY); // Always remember to specify your API Key!
@@ -34,4 +51,4 @@ Complete documentation is available on https://lukasgorny.pro/jpubg/.
 - ~~Add JSON parser and return objects instead of String data~~
 - ~~Add Java-docs~~
 - ~~Clean-up some code mess~~
-- Add library to central Maven repository (I have permissions now, going to publish library to Maven in a couple of days)
+- ~~Add library to central Maven repository (I have permissions now, going to publish library to Maven in a couple of days)~~
