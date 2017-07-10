@@ -44,6 +44,10 @@ As this is completely Open Source project, you may clone the code from the Githu
 3. Perform ***mvn clean package*** command and wait a minute.
 4. Compiled .jar file will appear in the ***/target*** folder. The one you should use is named ***jPUBG-X.X.X-SNAPSHOT-jar-with-dependencies.jar***, where X.X.X is of course version of the application.
 
+## Documentation
+
+Documentation is available on: http://www.javadoc.io/doc/pro.lukasgorny/jpubg
+
 ## TO-DO
 
 - ~~Add JSON parser and return objects instead of String data~~
