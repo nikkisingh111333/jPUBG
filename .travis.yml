@@ -5,4 +5,4 @@ branches:
   - master
 notifications:
     email: false
-install: mvn clean deploy -Dgpg.skip
+install: mvn clean install -Dgpg.skip
