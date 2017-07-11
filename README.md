@@ -33,6 +33,7 @@ To get the library file compiled with Java 1.8.0_131 please go to [releases](htt
 
 ```java
     JPubg jPubg = JPubgFactory.getWrapper(YOUR_API_KEY); // Always remember to specify your API Key!
+    JPubg jPubg2 = JPubgFactory.getWrapper(YOUR_API_KEY, 3000); //Default connection timeout of 5 seconds is overrided here by 3 second timeout
     String data = jPubg.getByNickname("TheHusar"); // Returns player "TheHusar" data in String JSON Format. Use it if you want to parse the data by yourself
     Player player = jPubg.getByNickname("TheHusar", PUBGMode.solo); // Returns player "TheHusar" object with matches filtered to played only in solo game mode
     Player player2 = jPubg.getByNickname("TheHusar", PUBGRegion.eu); // Returns player "TheHusar" object with matches filtered to only played in the EU region
