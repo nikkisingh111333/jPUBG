@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/Lukaszpg/jPUBG.svg?branch=master)](https://travis-ci.org/Lukaszpg/jPUBG)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Lukaszpg/jPUBG/master/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/pro.lukasgorny/jpubg.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22pro.lukasgorny%22)
+[![Javadocs](http://www.javadoc.io/badge/pro.lukasgorny/jpubg.svg)](http://www.javadoc.io/doc/pro.lukasgorny/jpubg)
 
 ## Overview
 
