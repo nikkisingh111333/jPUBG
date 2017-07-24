@@ -7,13 +7,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import com.google.common.base.Preconditions;
 
-import pro.lukasgorny.exceptions.ApiException;
 import pro.lukasgorny.exceptions.BadResponseCodeException;
 import pro.lukasgorny.messages.Messages;
 import pro.lukasgorny.settings.Settings;
 import pro.lukasgorny.utils.MessageUtils;
-import pro.lukasgorny.utils.StringUtils;
 import pro.lukasgorny.utils.UrlUtils;
 
 /**
@@ -24,67 +23,44 @@ public class HttpService {
     private URL url;
     private String apiKey;
     private HttpURLConnection connection;
+
     private int connectionTimeout = Settings.CONNECTION_TIMEOUT;
 
-    public HttpService(String apiKey) {
+    public HttpService(final String apiKey) {
         this.apiKey = apiKey;
     }
 
-    public HttpService(String apiKey, int connectionTimeout) {
+    public HttpService(final String apiKey, final int connectionTimeout) {
         this.apiKey = apiKey;
         this.connectionTimeout = connectionTimeout;
     }
 
-    public String executeGetByNicknameAction(String nickname) throws ApiException {
-        if(StringUtils.isNullOrEmpty(nickname)) {
-            throw new IllegalArgumentException(Messages.NICKNAME_MUST_NOT_BE_NULL_OR_EMPTY);
-        }
-
+    public String executeGetByNicknameAction(final String nickname) throws IOException, BadResponseCodeException {
+        Preconditions.checkArgument(nickname != null || !nickname.isEmpty(), Messages.NICKNAME_MUST_NOT_BE_NULL_OR_EMPTY);
         String response = sendGetByNicknameRequest(nickname);
-
-        if(response == null) {
-            throw new ApiException(Messages.FATAL_ERROR_NULL_RESPONSE);
-        }
+        Preconditions.checkState(!response.isEmpty(), Messages.FATAL_ERROR_EMPTY_RESPONSE);
 
         return response;
     }
 
-    public String executeGetBySteamIDAction(String steamID) throws ApiException {
-        if(StringUtils.isNullOrEmpty(steamID)) {
-            throw new IllegalArgumentException(Messages.STEAMID_MUST_NOT_BE_NULL_OR_EMPTY);
-        }
-
+    public String executeGetBySteamIDAction(final String steamID) throws IOException, BadResponseCodeException {
+        Preconditions.checkArgument(steamID != null || !steamID.isEmpty(), Messages.STEAMID_MUST_NOT_BE_NULL_OR_EMPTY);
         String response = sendGetBySteamIDRequest(steamID);
-
-        if(response == null) {
-            throw new ApiException(Messages.FATAL_ERROR_NULL_RESPONSE);
-        }
+        Preconditions.checkState(!response.isEmpty(), Messages.FATAL_ERROR_EMPTY_RESPONSE);
 
         return response;
     }
 
 
-    private String sendGetByNicknameRequest(String nickname) {
-        try {
-            return sendGetRequest(UrlUtils.prepareNicknameRequestURL(nickname));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
+    private String sendGetByNicknameRequest(final String nickname) throws IOException, BadResponseCodeException {
+        return sendGetRequest(UrlUtils.prepareNicknameRequestURL(nickname));
     }
 
-    private String sendGetBySteamIDRequest(String steamID) {
-        try {
-            return sendGetRequest(UrlUtils.prepareSteamIDRequestURL(steamID));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
+    private String sendGetBySteamIDRequest(final String steamID) throws IOException, BadResponseCodeException {
+        return sendGetRequest(UrlUtils.prepareSteamIDRequestURL(steamID));
     }
 
-    private String sendGetRequest(final String urlString) throws Exception {
+    private String sendGetRequest(final String urlString) throws IOException, BadResponseCodeException {
         prepareURL(urlString);
         prepareAndOpenConnection();
         setRequestProperties();
@@ -92,7 +68,7 @@ public class HttpService {
         return processResponse();
     }
 
-    private void prepareURL(String urlString) throws MalformedURLException {
+    private void prepareURL(final String urlString) throws MalformedURLException {
         url = new URL(urlString);
     }
 

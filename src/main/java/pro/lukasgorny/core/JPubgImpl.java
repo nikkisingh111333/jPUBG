@@ -1,11 +1,13 @@
 package pro.lukasgorny.core;
 
+import java.io.IOException;
+import javax.annotation.Nonnull;
+
+import pro.lukasgorny.dto.FilterCriteria;
 import pro.lukasgorny.dto.Player;
 import pro.lukasgorny.dto.Stat;
-import pro.lukasgorny.enums.PUBGMode;
-import pro.lukasgorny.enums.PUBGRegion;
 import pro.lukasgorny.enums.PUBGStat;
-import pro.lukasgorny.exceptions.ApiException;
+import pro.lukasgorny.exceptions.BadResponseCodeException;
 import pro.lukasgorny.services.HttpService;
 import pro.lukasgorny.services.MatchStatFilterService;
 import pro.lukasgorny.services.PlayerDataFilterService;
@@ -32,54 +34,30 @@ public class JPubgImpl implements JPubg {
     }
 
     @Override
-    public String getByNickname(String nickname) throws ApiException {
+    public String getByNickname(@Nonnull final String nickname) throws IOException, BadResponseCodeException {
         return httpService.executeGetByNicknameAction(nickname);
     }
 
     @Override
-    public Player getByNickname(String nickname, PUBGMode mode) throws ApiException {
+    public Player getByNickname(@Nonnull final String nickname, final FilterCriteria criteria) throws IOException, BadResponseCodeException {
         String data = httpService.executeGetByNicknameAction(nickname);
-        return playerDataFilterService.filterByMode(data, mode);
+        return playerDataFilterService.getPlayerByCriteria(data, criteria);
     }
 
     @Override
-    public Player getByNickname(String nickname, PUBGRegion region) throws ApiException {
-        String data = httpService.executeGetByNicknameAction(nickname);
-        return playerDataFilterService.filterByRegion(data, region);
-    }
-
-    @Override
-    public Player getByNickname(String nickname, PUBGMode mode, PUBGRegion region) throws ApiException {
-        String data = httpService.executeGetByNicknameAction(nickname);
-        return playerDataFilterService.filterByModeAndRegion(data, mode, region);
-    }
-
-    @Override
-    public String getBySteamID(String steamID) throws ApiException {
+    public String getBySteamID(@Nonnull final String steamID) throws IOException, BadResponseCodeException {
         return httpService.executeGetBySteamIDAction(steamID);
     }
 
     @Override
-    public Player getBySteamID(String steamID, PUBGMode mode) throws ApiException {
+    public Player getBySteamID(@Nonnull final String steamID, final FilterCriteria criteria) throws IOException, BadResponseCodeException {
         String data = httpService.executeGetBySteamIDAction(steamID);
-        return playerDataFilterService.filterByMode(data, mode);
+        return playerDataFilterService.getPlayerByCriteria(data, criteria);
     }
 
     @Override
-    public Player getBySteamID(String steamID, PUBGRegion region) throws ApiException {
-        String data = httpService.executeGetBySteamIDAction(steamID);
-        return playerDataFilterService.filterByRegion(data, region);
-    }
-
-    @Override
-    public Player getBySteamID(String steamID, PUBGMode mode, PUBGRegion region) throws ApiException {
-        String data = httpService.executeGetBySteamIDAction(steamID);
-        return playerDataFilterService.filterByModeAndRegion(data, mode, region);
-    }
-
-    @Override
-    public Stat getPlayerMatchStatByStatName(Player player, PUBGStat stat) throws ApiException {
-        return matchStatFilterService.filterPlayerMatchStatByStatName(player, stat);
+    public Stat getPlayerMatchStatByStatName(@Nonnull final Player player, @Nonnull final PUBGStat stat) {
+        return matchStatFilterService.getStatFromSeasonMatches(player.getMatches(), stat);
     }
 
 }

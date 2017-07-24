@@ -2,34 +2,43 @@ package pro.lukasgorny.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import com.google.common.base.Optional;
+import com.google.common.base.Preconditions;
 
-import pro.lukasgorny.dto.Player;
+import pro.lukasgorny.dto.Match;
 import pro.lukasgorny.dto.Stat;
 import pro.lukasgorny.enums.PUBGStat;
-import pro.lukasgorny.exceptions.ApiException;
 import pro.lukasgorny.messages.Messages;
 
 /**
  * Created by Łukasz "Husar" Górny on 2017-07-10.
  */
 public class MatchStatFilterService {
-    public Stat filterPlayerMatchStatByStatName(Player player, PUBGStat statName) throws ApiException {
 
-        if (player == null) {
-            throw new ApiException(Messages.CANNOT_GET_PLAYER_MATCH_STAT);
-        }
+    private MatchValidationService matchValidationService;
 
-        if (player.getMatches() == null || player.getMatches().isEmpty()) {
-            throw new ApiException(Messages.PLAYER_HAS_NO_MATCHES_PLAYED);
-        }
+    public MatchStatFilterService() {
+        this.matchValidationService = new MatchValidationService();
+    }
 
-        List<Stat> results = player.getMatches().get(player.getMatches().size() - 1).getStats().stream()
+    public Stat getStatFromSeasonMatches(final List<Match> matches, final PUBGStat statName) {
+        Match match = getMatchFromSeason(matches);
+
+        List<Stat> results = match.getStats().stream()
                                    .filter(stat -> statName.getLabelName().equals(stat.getField())).collect(Collectors.toList());
 
-        if (results.size() != 1) {
-            throw new ApiException(Messages.BAD_NUMBER_OF_STATS_RETURNED);
-        }
+        Preconditions.checkState(results.size() == 1, Messages.BAD_NUMBER_OF_STATS_RETURNED);
 
         return results.get(0);
+    }
+
+    private Match getMatchFromSeason(List<Match> matches) {
+        matchValidationService.validateWithSizeValidation(matches);
+
+        Optional<List<Match>> optionalMatches = Optional.fromNullable(matches);
+        Match match = optionalMatches.get().get(0);
+        matchValidationService.validateSingleMatch(match);
+
+        return match;
     }
 }

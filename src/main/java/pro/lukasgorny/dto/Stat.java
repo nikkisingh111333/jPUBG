@@ -2,6 +2,8 @@ package pro.lukasgorny.dto;
 
 import com.google.gson.annotations.SerializedName;
 
+import pro.lukasgorny.enums.PUBGSeason;
+
 /**
  * Created by Łukasz "Husar" Górny on 2017-06-30.
  */
@@ -30,6 +32,8 @@ public class Stat {
     private Double percentile;
 
     private String displayValue;
+
+    private transient PUBGSeason season;
 
     public String getPartition() {
         return partition;
@@ -117,5 +121,13 @@ public class Stat {
 
     public void setDisplayValue(String displayValue) {
         this.displayValue = displayValue;
+    }
+
+    public PUBGSeason getSeason() {
+        return season;
+    }
+
+    public void setSeason(PUBGSeason season) {
+        this.season = season;
     }
 }

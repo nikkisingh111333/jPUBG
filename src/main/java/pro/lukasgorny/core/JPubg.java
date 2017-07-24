@@ -1,11 +1,12 @@
 package pro.lukasgorny.core;
 
+import java.io.IOException;
+
+import pro.lukasgorny.dto.FilterCriteria;
 import pro.lukasgorny.dto.Player;
 import pro.lukasgorny.dto.Stat;
-import pro.lukasgorny.enums.PUBGMode;
-import pro.lukasgorny.enums.PUBGRegion;
 import pro.lukasgorny.enums.PUBGStat;
-import pro.lukasgorny.exceptions.ApiException;
+import pro.lukasgorny.exceptions.BadResponseCodeException;
 
 /**
  * Created by Łukasz "Husar" Górny on 2017-06-29.
@@ -18,58 +19,22 @@ public interface JPubg {
      *
      * @param nickname nickname of the player
      * @return JSON String format with player data
-     * @throws ApiException When something goes fatally wrong and response is NULL
+     * @throws IOException              When there are input/output stream related problems
+     * @throws BadResponseCodeException When server returns other code than 200 OK
      */
-    String getByNickname(String nickname) throws ApiException;
+    String getByNickname(final String nickname) throws IOException, BadResponseCodeException;
 
     /**
      * Retrieves player specified by nickname data from the PUBGTracker API
-     * and filters it by specified mode.
+     * and filters it by specified criteria.
      *
      * @param nickname nickname of the player
-     * @param mode     specifies from what game mode you want the data to be retrieved
-     *                 {@link PUBGMode#solo}
-     *                 {@link PUBGMode#duo}
-     *                 {@link PUBGMode#squad}
+     * @param criteria filtering criteria
      * @return Object with player data
-     * @throws ApiException When something goes fatally wrong and response is NULL
+     * @throws IOException              When there are input/output stream related problems
+     * @throws BadResponseCodeException When server returns other code than 200 OK
      */
-    Player getByNickname(String nickname, PUBGMode mode) throws ApiException;
-
-    /**
-     * Retrieves player specified by nickname data from the PUBGTracker API
-     * and filters it by specified region.
-     *
-     * @param nickname nickname of the player
-     * @param region   specifies from what region you want the data to be retrieved
-     *                 {@link PUBGRegion#agg}
-     *                 {@link PUBGRegion#as}
-     *                 {@link PUBGRegion#na}
-     *                 {@link PUBGRegion#eu}
-     *                 {@link PUBGRegion#oc}
-     *                 {@link PUBGRegion#sa}
-     * @return Object with player data
-     * @throws ApiException When something goes fatally wrong and response is NULL
-     */
-    Player getByNickname(String nickname, PUBGRegion region) throws ApiException;
-
-    /**
-     * Retrieves player specified by nickname data from the PUBGTracker API
-     * and filters it by specified region and mode.
-     *
-     * @param nickname nickname of the player
-     * @param mode     specifies from what game mode you want the data to be retrieved {@link PUBGMode#solo} {@link PUBGMode#duo} {@link PUBGMode#squad}
-     * @param region   specifies from what region you want the data to be retrieved
-     *                 {@link PUBGRegion#agg}
-     *                 {@link PUBGRegion#as}
-     *                 {@link PUBGRegion#na}
-     *                 {@link PUBGRegion#eu}
-     *                 {@link PUBGRegion#oc}
-     *                 {@link PUBGRegion#sa}
-     * @return Object with player data
-     * @throws ApiException When something goes fatally wrong and response is NULL
-     */
-    Player getByNickname(String nickname, PUBGMode mode, PUBGRegion region) throws ApiException;
+    Player getByNickname(final String nickname, final FilterCriteria criteria) throws IOException, BadResponseCodeException;
 
     /**
      * Retrieves player specified by steamID data from the PUBGTracker API
@@ -78,61 +43,22 @@ public interface JPubg {
      *
      * @param steamID steamID of the player
      * @return JSON String format with player data
-     * @throws ApiException When something goes fatally wrong and response is NULL
+     * @throws IOException              When there are input/output stream related problems
+     * @throws BadResponseCodeException When server returns other code than 200 OK
      */
-    String getBySteamID(String steamID) throws ApiException;
+    String getBySteamID(final String steamID) throws IOException, BadResponseCodeException;
 
     /**
-     * Retrieves player specified by steamID data from the PUBGTracker API
-     * and filters it by specified mode.
+     * Retrieves player specified by nickname data from the PUBGTracker API
+     * and filters it by specified criteria.
      *
-     * @param steamID steamID of the player
-     * @param mode    specifies from what game mode you want the data to be retrieved
-     *                {@link PUBGMode#solo}
-     *                {@link PUBGMode#duo}
-     *                {@link PUBGMode#squad}
+     * @param steamID  steamID of the player
+     * @param criteria filtering criteria
      * @return Object with player data
-     * @throws ApiException When something goes fatally wrong and response is NULL
+     * @throws IOException              When there are input/output stream related problems
+     * @throws BadResponseCodeException When server returns other code than 200 OK
      */
-    Player getBySteamID(String steamID, PUBGMode mode) throws ApiException;
-
-    /**
-     * Retrieves player specified by steamID data from the PUBGTracker API
-     * and filters it by specified region.
-     *
-     * @param steamID steamID of the player
-     * @param region  specifies from what region you want the data to be retrieved
-     *                {@link PUBGRegion#agg}
-     *                {@link PUBGRegion#as}
-     *                {@link PUBGRegion#na}
-     *                {@link PUBGRegion#eu}
-     *                {@link PUBGRegion#oc}
-     *                {@link PUBGRegion#sa}
-     * @return Object with player data
-     * @throws ApiException When something goes fatally wrong and response is NULL
-     */
-    Player getBySteamID(String steamID, PUBGRegion region) throws ApiException;
-
-    /**
-     * Retrieves player specified by steamID data from the PUBGTracker API
-     * and filters it by specified mode and region.
-     *
-     * @param steamID steamID of the player
-     * @param mode    specifies from what game mode you want the data to be retrieved
-     *                {@link PUBGMode#solo}
-     *                {@link PUBGMode#duo}
-     *                {@link PUBGMode#squad}
-     * @param region  specifies from what region you want the data to be retrieved
-     *                {@link PUBGRegion#agg}
-     *                {@link PUBGRegion#as}
-     *                {@link PUBGRegion#na}
-     *                {@link PUBGRegion#eu}
-     *                {@link PUBGRegion#oc}
-     *                {@link PUBGRegion#sa}
-     * @return Object with player data
-     * @throws ApiException When something goes fatally wrong and response is NULL
-     */
-    Player getBySteamID(String steamID, PUBGMode mode, PUBGRegion region) throws ApiException;
+    Player getBySteamID(final String steamID, final FilterCriteria criteria) throws IOException, BadResponseCodeException;
 
     /**
      * Filters stat by name from specified players matches from the latest season.
@@ -140,7 +66,6 @@ public interface JPubg {
      * @param player steamID of the player
      * @param stat   specifies what stat you want to be filtered
      * @return Object with stat data
-     * @throws ApiException When player object is null or player has no matches played in the given season
      */
-    Stat getPlayerMatchStatByStatName(Player player, PUBGStat stat) throws ApiException;
+    Stat getPlayerMatchStatByStatName(Player player, PUBGStat stat);
 }

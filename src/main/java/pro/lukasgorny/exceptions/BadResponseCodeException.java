@@ -1,7 +1,7 @@
 package pro.lukasgorny.exceptions;
 
 /**
- * Created by lukaszgo on 2017-06-29.
+ * Created by Łukasz "Husar" Górny on 2017-06-29.
  */
 public class BadResponseCodeException extends Exception {
 

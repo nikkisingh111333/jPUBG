@@ -7,7 +7,7 @@ import pro.lukasgorny.messages.Messages;
  */
 public class MessageUtils {
 
-    public static String prepareBadCodeErrorMessage(int responseCode) {
+    public static String prepareBadCodeErrorMessage(final int responseCode) {
         return String.format(Messages.BAD_RESPONSE_CODE_ERROR, String.valueOf(responseCode));
     }
 }
