@@ -31,14 +31,44 @@ To get the library file compiled with Java 1.8.0_131 please go to [releases](htt
 
 ## Example usage
 
+### Simple FilterCriteria 
 ```java
-    JPubg jPubg = JPubgFactory.getWrapper(YOUR_API_KEY); // Always remember to specify your API Key!
-    JPubg jPubg2 = JPubgFactory.getWrapper(YOUR_API_KEY, 3000); //Default connection timeout of 5 seconds is overrided here by 3 second timeout
-    String data = jPubg.getByNickname("TheHusar"); // Returns player "TheHusar" data in String JSON Format. Use it if you want to parse the data by yourself
-    Player player = jPubg.getByNickname("TheHusar", PUBGMode.solo); // Returns player "TheHusar" object with matches filtered to played only in solo game mode
-    Player player2 = jPubg.getByNickname("TheHusar", PUBGRegion.eu); // Returns player "TheHusar" object with matches filtered to only played in the EU region
-    Player player3 = jPubg.getByNickname("TheHusar", PUBGMode.duo, PUBGRegion.eu); // Returns player "TheHusar" object with matches filtered to played only in duo game mode and in eu region
-    Stat stat = jPubg.getPlayerMatchStatByStatName(player3, PUBGStat.RATING); // Returns "Rating" stat object of player "TheHusar" from latest season from DUO mode and EU region
+// Always remember to specify your API key
+JPubg jPubg = JPubgFactory.getWrapper(YOUR_API_KEY);
+
+// We're filtering by mode here. If you don't want to filter by certain criteria, just don't pass it to the filter
+FilterCriteria criteria = new FilterCriteria();
+criteria.setMode(PUBGMode.solo);
+
+// If you would like to stop filtering by that criteria, just pass the null value
+// If no criterias are specified, player object without data filtering will be returned
+criteria.setMode(null);
+
+// All solo matches from all seasons are being returned here
+Player player = jPubg.getByNickname("TheHusar", criteria);
+```
+
+### Stat from season filtering
+
+WARNING! You have to be very specific with filters if you want to retrieve single stat from season data, because if more than one season data will be present in player object, exception will be called.
+
+```java
+// Always remember to specify your API key
+JPubg jPubg = JPubgFactory.getWrapper(YOUR_API_KEY);
+
+// We're filtering by mode, region and season here
+FilterCriteria criteria = new FilterCriteria();
+criteria.setMode(PUBGMode.solo);
+criteria.setRegion(PUBGRegion.eu);
+criteria.setSeason(PUBGSeason.PRE2_2017);
+
+Player player = jPubg.getByNickname("TheHusar", criteria);
+
+// We would like to retrieve best rating for player "TheHusar" for season PRE2_2017
+Stat stat = jPubg.getPlayerMatchStatByStatName(player, PUBGStat.BEST_RATING);
+
+// You can get season name directly from stat object
+System.out.println("Player " + player.getPlayerName() + " best rating in season: " + stat.getSeason().getSeasonName() + " is: " + stat.getStringValue());
 ```
 
 ## Compiling on your own
