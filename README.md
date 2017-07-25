@@ -40,6 +40,9 @@ JPubg jPubg = JPubgFactory.getWrapper(YOUR_API_KEY);
 FilterCriteria criteria = new FilterCriteria();
 criteria.setMode(PUBGMode.solo);
 
+// You can also create object of FilterCriteria class with constructor with arguments
+FilterCriteria criteria2 = new FilterCriteria(PUBGMode.solo, PUBGRegion.eu, PUBGSeason.PRE2_2017);
+
 // If you would like to stop filtering by that criteria, just pass the null value
 // If no criterias are specified, player object without data filtering will be returned
 criteria.setMode(null);
