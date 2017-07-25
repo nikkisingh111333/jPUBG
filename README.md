@@ -24,7 +24,7 @@ It's simple - just add few lines below to your pom.xml and you're good to go! X.
 </dependency>
 ```
 
-### 2. As standalone library
+### 2. As a standalone library
 
 To get the library file compiled with Java 1.8.0_131 please go to [releases](https://github.com/Lukaszpg/jPUBG/releases) and download latest available version. Add it to your project classpath, then get the jPUBG API wrapper object from the factory with your api key and start fetching data! 
 
@@ -86,9 +86,4 @@ As this is completely Open Source project, you may clone the code from the Githu
 
 Documentation is available on: http://www.javadoc.io/doc/pro.lukasgorny/jpubg
 
-## TO-DO
-
-- ~~Add JSON parser and return objects instead of String data~~
-- ~~Add Java-docs~~
-- ~~Clean-up some code mess~~
-- ~~Add library to central Maven repository (I have permissions now, going to publish library to Maven in a couple of days)~~
+JavaDocs are updated once per 24h after new version release.
