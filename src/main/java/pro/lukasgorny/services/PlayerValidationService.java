@@ -14,6 +14,7 @@ public class PlayerValidationService {
     public void validate(final Player player) {
         Optional<Player> playerOptional = Optional.fromNullable(player);
         Preconditions.checkArgument(playerOptional.isPresent(), Messages.CANNOT_FILTER_PLAYER_NULL);
+        Preconditions.checkArgument(playerOptional.get().getAccountId() != null, Messages.CANNOT_FILTER_PLAYER_NULL);
         Preconditions.checkArgument(playerOptional.get().getMatches() != null, Messages.PLAYER_HAS_NO_MATCHES_PLAYED);
         Preconditions.checkArgument(!playerOptional.get().getMatches().isEmpty(), Messages.PLAYER_HAS_NO_MATCHES_PLAYED);
     }

@@ -26,28 +26,27 @@ public class PlayerDataFilterService {
     public Player getPlayerByCriteria(final String data, final FilterCriteria criteria) {
         Player player = jsonToObject(data);
         Optional<FilterCriteria> criteriaOptional = Optional.fromNullable(criteria);
-        Optional<PUBGMode> modeOptional = Optional.fromNullable(criteriaOptional.get().getMode());
-        Optional<PUBGRegion> regionOptional = Optional.fromNullable(criteriaOptional.get().getRegion());
-        Optional<PUBGSeason> seasonOptional = Optional.fromNullable(criteriaOptional.get().getSeason());
 
-        playerValidationService.validate(player);
+        if(criteriaOptional.isPresent()) {
+            Optional<PUBGMode> modeOptional = Optional.fromNullable(criteriaOptional.get().getMode());
+            Optional<PUBGRegion> regionOptional = Optional.fromNullable(criteriaOptional.get().getRegion());
+            Optional<PUBGSeason> seasonOptional = Optional.fromNullable(criteriaOptional.get().getSeason());
 
-        if (modeOptional.isPresent() && !regionOptional.isPresent() && !seasonOptional.isPresent()) {
-            filterByMode(player, criteria);
-        } else if (!modeOptional.isPresent() && regionOptional.isPresent() && !seasonOptional.isPresent()) {
-            filterByRegion(player, criteria);
-        } else if (!modeOptional.isPresent() && !regionOptional.isPresent() && seasonOptional.isPresent()) {
-            filterBySeason(player, criteria);
-        } else if (modeOptional.isPresent() && regionOptional.isPresent() && !seasonOptional.isPresent()) {
-            filterByModeAndRegion(player, criteria);
-        } else if (modeOptional.isPresent() && !regionOptional.isPresent() && seasonOptional.isPresent()) {
-            filterByModeAndSeason(player, criteria);
-        } else if (!modeOptional.isPresent() && regionOptional.isPresent() && seasonOptional.isPresent()) {
-            filterByRegionAndSeason(player, criteria);
-        } else if (modeOptional.isPresent() && regionOptional.isPresent() && seasonOptional.isPresent()) {
-            filterByRegionAndModeAndSeason(player, criteria);
-        } else {
-            return player;
+            if (modeOptional.isPresent() && !regionOptional.isPresent() && !seasonOptional.isPresent()) {
+                filterByMode(player, criteria);
+            } else if (!modeOptional.isPresent() && regionOptional.isPresent() && !seasonOptional.isPresent()) {
+                filterByRegion(player, criteria);
+            } else if (!modeOptional.isPresent() && !regionOptional.isPresent() && seasonOptional.isPresent()) {
+                filterBySeason(player, criteria);
+            } else if (modeOptional.isPresent() && regionOptional.isPresent() && !seasonOptional.isPresent()) {
+                filterByModeAndRegion(player, criteria);
+            } else if (modeOptional.isPresent() && !regionOptional.isPresent() && seasonOptional.isPresent()) {
+                filterByModeAndSeason(player, criteria);
+            } else if (!modeOptional.isPresent() && regionOptional.isPresent() && seasonOptional.isPresent()) {
+                filterByRegionAndSeason(player, criteria);
+            } else if (modeOptional.isPresent() && regionOptional.isPresent() && seasonOptional.isPresent()) {
+                filterByRegionAndModeAndSeason(player, criteria);
+            }
         }
 
         return player;
@@ -106,6 +105,7 @@ public class PlayerDataFilterService {
     private Player jsonToObject(final String data) {
         Gson gson = new Gson();
         Player player = gson.fromJson(data, Player.class);
+        playerValidationService.validate(player);
         dataAppendService.appendSeasonToStats(player);
         return player;
     }

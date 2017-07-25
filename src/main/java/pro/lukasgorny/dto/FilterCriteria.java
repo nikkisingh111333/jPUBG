@@ -12,6 +12,14 @@ public class FilterCriteria {
     private PUBGRegion region = null;
     private PUBGSeason season = null;
 
+    public FilterCriteria(final PUBGMode mode, final PUBGRegion region, final PUBGSeason season) {
+        this.mode = mode;
+        this.region = region;
+        this.season = season;
+    }
+
+    public FilterCriteria() {}
+
     public PUBGMode getMode() {
         return mode;
     }

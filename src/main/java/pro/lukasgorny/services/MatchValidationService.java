@@ -14,14 +14,12 @@ public class MatchValidationService {
 
     public void validate(final List<Match> matches) {
         Optional<List<Match>> optionalMatches = Optional.fromNullable(matches);
-
         Preconditions.checkArgument(optionalMatches.isPresent(), Messages.CANNOT_GET_MATCH_NULL);
         Preconditions.checkArgument(!optionalMatches.get().isEmpty(), Messages.CANNOT_GET_MATCH_EMPTY);
     }
 
     public void validateWithSizeValidation(final List<Match> matches) {
         validate(matches);
-
         Preconditions.checkArgument(matches.size() == 1, Messages.CANNOT_GET_MATCH_SIZE_TOO_HIGH);
     }
 

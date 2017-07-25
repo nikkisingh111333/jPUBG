@@ -1,12 +1,11 @@
 package pro.lukasgorny.core;
 
-import java.io.IOException;
+import javax.annotation.Nonnull;
 
 import pro.lukasgorny.dto.FilterCriteria;
 import pro.lukasgorny.dto.Player;
 import pro.lukasgorny.dto.Stat;
 import pro.lukasgorny.enums.PUBGStat;
-import pro.lukasgorny.exceptions.BadResponseCodeException;
 
 /**
  * Created by Łukasz "Husar" Górny on 2017-06-29.
@@ -19,10 +18,8 @@ public interface JPubg {
      *
      * @param nickname nickname of the player
      * @return JSON String format with player data
-     * @throws IOException              When there are input/output stream related problems
-     * @throws BadResponseCodeException When server returns other code than 200 OK
      */
-    String getByNickname(final String nickname) throws IOException, BadResponseCodeException;
+    String getByNickname(@Nonnull final String nickname);
 
     /**
      * Retrieves player specified by nickname data from the PUBGTracker API
@@ -31,10 +28,8 @@ public interface JPubg {
      * @param nickname nickname of the player
      * @param criteria filtering criteria
      * @return Object with player data
-     * @throws IOException              When there are input/output stream related problems
-     * @throws BadResponseCodeException When server returns other code than 200 OK
      */
-    Player getByNickname(final String nickname, final FilterCriteria criteria) throws IOException, BadResponseCodeException;
+    Player getByNickname(@Nonnull final String nickname, final FilterCriteria criteria);
 
     /**
      * Retrieves player specified by steamID data from the PUBGTracker API
@@ -43,10 +38,8 @@ public interface JPubg {
      *
      * @param steamID steamID of the player
      * @return JSON String format with player data
-     * @throws IOException              When there are input/output stream related problems
-     * @throws BadResponseCodeException When server returns other code than 200 OK
      */
-    String getBySteamID(final String steamID) throws IOException, BadResponseCodeException;
+    String getBySteamID(@Nonnull final String steamID);
 
     /**
      * Retrieves player specified by nickname data from the PUBGTracker API
@@ -55,10 +48,8 @@ public interface JPubg {
      * @param steamID  steamID of the player
      * @param criteria filtering criteria
      * @return Object with player data
-     * @throws IOException              When there are input/output stream related problems
-     * @throws BadResponseCodeException When server returns other code than 200 OK
      */
-    Player getBySteamID(final String steamID, final FilterCriteria criteria) throws IOException, BadResponseCodeException;
+    Player getBySteamID(@Nonnull final String steamID, final FilterCriteria criteria);
 
     /**
      * Filters stat by name from specified players matches from the latest season.
@@ -67,5 +58,5 @@ public interface JPubg {
      * @param stat   specifies what stat you want to be filtered
      * @return Object with stat data
      */
-    Stat getPlayerMatchStatByStatName(Player player, PUBGStat stat);
+    Stat getPlayerMatchStatByStatName(@Nonnull Player player, @Nonnull final PUBGStat stat);
 }

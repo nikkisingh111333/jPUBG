@@ -35,17 +35,31 @@ public class HttpService {
         this.connectionTimeout = connectionTimeout;
     }
 
-    public String executeGetByNicknameAction(final String nickname) throws IOException, BadResponseCodeException {
+    public String executeGetByNicknameAction(final String nickname) {
         Preconditions.checkArgument(nickname != null || !nickname.isEmpty(), Messages.NICKNAME_MUST_NOT_BE_NULL_OR_EMPTY);
-        String response = sendGetByNicknameRequest(nickname);
+        String response = null;
+
+        try {
+            response = sendGetByNicknameRequest(nickname);
+        } catch (IOException | BadResponseCodeException e) {
+            e.printStackTrace();
+        }
+
         Preconditions.checkState(!response.isEmpty(), Messages.FATAL_ERROR_EMPTY_RESPONSE);
 
         return response;
     }
 
-    public String executeGetBySteamIDAction(final String steamID) throws IOException, BadResponseCodeException {
+    public String executeGetBySteamIDAction(final String steamID) {
         Preconditions.checkArgument(steamID != null || !steamID.isEmpty(), Messages.STEAMID_MUST_NOT_BE_NULL_OR_EMPTY);
-        String response = sendGetBySteamIDRequest(steamID);
+        String response = null;
+
+        try {
+            response = sendGetBySteamIDRequest(steamID);
+        } catch (IOException | BadResponseCodeException e) {
+            e.printStackTrace();
+        }
+
         Preconditions.checkState(!response.isEmpty(), Messages.FATAL_ERROR_EMPTY_RESPONSE);
 
         return response;
