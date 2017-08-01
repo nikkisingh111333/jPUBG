@@ -8,7 +8,8 @@ import java.util.Map;
  */
 public enum PUBGSeason {
     PRE1_2017("2017-pre1"),
-    PRE2_2017("2017-pre2");
+    PRE2_2017("2017-pre2"),
+    PRE3_2017("2017-pre3");
 
     PUBGSeason(String seasonName) {
         this.seasonName = seasonName;
