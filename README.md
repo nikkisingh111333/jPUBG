@@ -5,6 +5,10 @@
 [![Maven Central](https://img.shields.io/maven-central/v/pro.lukasgorny/jpubg.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22pro.lukasgorny%22)
 [![Javadocs](http://www.javadoc.io/badge/pro.lukasgorny/jpubg.svg)](http://www.javadoc.io/doc/pro.lukasgorny/jpubg)
 
+## Support
+
+Looking for help? Join our Gitter: [![Gitter chat](https://badges.gitter.im/jPUBG/gitter.png)](https://gitter.im/jPUBG/jPUBG-support)
+
 ## Overview
 
 Simple API wrapper written in Java 8 for retriving statistics from http://pubgtracker.com API. 
