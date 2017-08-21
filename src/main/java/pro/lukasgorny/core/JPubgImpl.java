@@ -32,6 +32,7 @@ public final class JPubgImpl implements JPubg {
     }
 
     @Override
+    @Deprecated
     public String getByNickname(@Nonnull final String nickname) {
         return httpService.executeGetByNicknameAction(nickname);
     }
@@ -43,6 +44,7 @@ public final class JPubgImpl implements JPubg {
     }
 
     @Override
+    @Deprecated
     public String getBySteamID(@Nonnull final String steamID) {
         return httpService.executeGetBySteamIDAction(steamID);
     }

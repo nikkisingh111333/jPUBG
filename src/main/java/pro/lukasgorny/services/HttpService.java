@@ -45,8 +45,6 @@ public class HttpService {
             e.printStackTrace();
         }
 
-        Preconditions.checkState(!response.isEmpty(), Messages.FATAL_ERROR_EMPTY_RESPONSE);
-
         return response;
     }
 
@@ -59,8 +57,6 @@ public class HttpService {
         } catch (IOException | BadResponseCodeException e) {
             e.printStackTrace();
         }
-
-        Preconditions.checkState(!response.isEmpty(), Messages.FATAL_ERROR_EMPTY_RESPONSE);
 
         return response;
     }

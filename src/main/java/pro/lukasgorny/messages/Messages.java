@@ -5,7 +5,6 @@ package pro.lukasgorny.messages;
  */
 public class Messages {
     public static final String BAD_RESPONSE_CODE_ERROR = "FATAL ERROR! Server has returned %s response code. It should be 200 OK.";
-    public static final String FATAL_ERROR_EMPTY_RESPONSE = "FATAL ERROR! Empty response returned!";
     public static final String NICKNAME_MUST_NOT_BE_NULL_OR_EMPTY = "Nickname argument must not be null or empty!";
     public static final String STEAMID_MUST_NOT_BE_NULL_OR_EMPTY = "SteamID argument must not be null or empty!";
     public static final String CANNOT_FILTER_PLAYER_NULL = "Cannot filter player data, because player object returned is null! Is your API Key valid?";

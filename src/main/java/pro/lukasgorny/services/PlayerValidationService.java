@@ -11,7 +11,7 @@ import pro.lukasgorny.messages.Messages;
  */
 public class PlayerValidationService {
 
-    public void validate(final Player player) {
+    public void validate(final Player player) throws IllegalArgumentException {
         Optional<Player> playerOptional = Optional.fromNullable(player);
         Preconditions.checkArgument(playerOptional.isPresent(), Messages.CANNOT_FILTER_PLAYER_NULL);
         Preconditions.checkArgument(playerOptional.get().getAccountId() != null, Messages.CANNOT_FILTER_PLAYER_NULL);
