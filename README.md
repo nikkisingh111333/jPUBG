@@ -5,6 +5,10 @@
 [![Maven Central](https://img.shields.io/maven-central/v/pro.lukasgorny/jpubg.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22pro.lukasgorny%22)
 [![Javadocs](http://www.javadoc.io/badge/pro.lukasgorny/jpubg.svg)](http://www.javadoc.io/doc/pro.lukasgorny/jpubg)
 
+## Android version
+
+If you're looking for version compatible with Android, please go here: [https://github.com/Lukaszpg/jPUBG-Android](https://github.com/Lukaszpg/jPUBG-Android)
+
 ## Support
 
 Looking for help? Join our Gitter: [![Gitter chat](https://badges.gitter.im/jPUBG/gitter.png)](https://gitter.im/jPUBG/jPUBG-support)
