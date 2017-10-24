@@ -2,13 +2,24 @@ package pro.lukasgorny.enums;
 
 /**
  * Created by Łukasz "Husar" Górny on 2017-06-29.
+ * Added Full Region Names by Timothy "Tim3Game" Beihofner on 2017-09-24.
  */
 public enum PUBGRegion {
-    agg,
-    na,
-    eu,
-    as,
-    oc,
-    sa,
-    sea
+    agg("All Regions Combined"),
+    na("North America"),
+    eu("Europe"),
+    as("Asia"),
+    oc("Oceania"),
+    sa("South America"),
+    sea("South East Asia");
+
+    private final String regionName;
+
+    PUBGRegion(String regionName) {
+        this.regionName = regionName;
+    }
+
+    public String getRegionName() {
+        return regionName;
+    }
 }
