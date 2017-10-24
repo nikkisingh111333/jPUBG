@@ -11,7 +11,8 @@ public enum PUBGRegion {
     as("Asia"),
     oc("Oceania"),
     sa("South America"),
-    sea("South East Asia");
+    sea("South East Asia"),
+    krjp("Korea/Japan");
 
     private final String regionName;
 
